@@ -59,8 +59,6 @@ public class ListAdapter extends BaseAdapter {
         txFecha.setText(peliculasVOList.get(position).getFecha());
         Picasso.with(context).load(peliculasVOList.get(position).getUrl()).into(imvPoster);
         if(position % 2 == 0){
-
-            
             v.setBackgroundColor(v.getResources().getColor(R.color.colorVinoTinto));
         }else{
             v.setBackgroundColor(v.getResources().getColor(R.color.colorPrimary));
