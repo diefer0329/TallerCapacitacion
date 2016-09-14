@@ -1,6 +1,9 @@
 package seratic.talleres.capacitacion.org.tallerescapacitacion.adapter;
 
+
+
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -30,39 +33,39 @@ public class ListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return peliculasVOList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return peliculasVOList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v=convertView;
-        if (v==null){
-            v = View.inflate(context,R.layout.ly_list_view,null);
 
-        }
-        TextView txNombrePelicula= (TextView)v.findViewById(R.id.tx_nombre_pelicula);
-        TextView  txSinopsis= (TextView)v.findViewById(R.id.tx_sinopsis);
-        TextView  txFecha= (TextView)v.findViewById(R.id.tx_fecha);
-       ImageView imvPoster = (ImageView) v.findViewById(R.id.imv_poster);
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View rowView = inflater.inflate(R.layout.ly_list_view, parent, false);
+
+        TextView txNombrePelicula= (TextView)rowView.findViewById(R.id.tx_nombre_pelicula);
+        TextView  txSinopsis= (TextView)rowView.findViewById(R.id.tx_sinopsis);
+        TextView  txFecha= (TextView)rowView.findViewById(R.id.tx_fecha);
+       ImageView imvPoster = (ImageView) rowView.findViewById(R.id.imv_poster);
         txNombrePelicula.setText(peliculasVOList.get(position).getNombre());
         txSinopsis.setText(peliculasVOList.get(position).getSinopsis());
         txFecha.setText(peliculasVOList.get(position).getFecha());
         Picasso.with(context).load(peliculasVOList.get(position).getUrl()).into(imvPoster);
         if(position % 2 == 0){
-            v.setBackgroundColor(v.getResources().getColor(R.color.colorVinoTinto));
+            rowView.setBackgroundColor(rowView.getResources().getColor(R.color.colorVinoTinto));
         }else{
-            v.setBackgroundColor(v.getResources().getColor(R.color.colorPrimary));
+            rowView.setBackgroundColor(rowView.getResources().getColor(R.color.colorPrimary));
         }
-        return v;
+        return rowView;
     }
 }

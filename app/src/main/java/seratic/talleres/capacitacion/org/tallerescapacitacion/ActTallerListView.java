@@ -26,11 +26,11 @@ public class ActTallerListView extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ly_act_taller_list_view);
         lvPeliculas = (ListView) findViewById(R.id.lv_pelis);
-        //llenarLista();
+        llenarLista();
 
-        //ListAdapter adapter = new ListAdapter(ActTallerListView.this,peliculasVOList);
-        //lvPeliculas.setAdapter(adapter);
-        //lvPeliculas.setOnItemClickListener(this);
+        ListAdapter adapter = new ListAdapter(ActTallerListView.this,peliculasVOList);
+        lvPeliculas.setAdapter(adapter);
+        lvPeliculas.setOnItemClickListener(this);
 
     }
 

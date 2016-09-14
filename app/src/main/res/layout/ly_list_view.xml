@@ -25,6 +25,7 @@
             android:textSize="30px"
             android:textStyle="bold"
             android:layout_marginRight="5dp"
+            android:background="#cccccccc"
             android:layout_gravity="right|bottom"/>
     </FrameLayout>
     <RelativeLayout
